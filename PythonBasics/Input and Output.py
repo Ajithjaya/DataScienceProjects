@@ -41,3 +41,39 @@ with open('workfile') as f:
 print((read_data))
 print(f.closed)
 
+with open('workfile') as f:
+    print(f.readline())
+
+with open('workfile') as f:
+    for line in f:
+        print(line, end='\n')
+
+with open('workfile') as f:
+    print(f.readlines())
+
+with open('workfile', 'w') as f:
+    x = f.write('This is a third test\n')
+print(x)
+
+value = ('the answer', 42)
+s = str(value) # convert tuple to string
+with open('workfile', 'w') as f:
+    f.write(s)
+
+with open('workfile','a') as f:
+    s = '\n this is final test'
+    f.write(s)
+
+json_string = '{"first_name": "Guido", "last_name": "Rossum"}'
+import json
+parsed_json = json.loads(json_string)
+
+print(parsed_json['first_name'])
+
+# convert following to json
+d = {
+    'first_name': 'Guido',
+    'second_name': 'Rossum',
+    'titles': ['BDFL', 'Developer']
+}
+print(json.dumps(d))
