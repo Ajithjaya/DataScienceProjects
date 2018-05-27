@@ -117,3 +117,72 @@ singleton = 'hello',  #  constructing one item by following with a comma makes i
 print(len(empty))
 print(len(singleton))
 print(singleton)
+
+# Sets
+#  A set is an unordered collection with no duplicate elements. Basic uses include memebership entries and eliminating
+#  duplicate entries . Set objects aalso support mathematical operations.
+
+basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+print(basket)  # show that duplicates have been removed
+print('orange' in basket)
+print('crabgrass' in basket)
+
+a = set('abracadabra')
+b = set('alacazam')
+print(a)  #  unique letters in a
+print(a-b) # letters in a but not b
+print(a|b) # letters in a or b or both
+print(a&b) # letters in both a and b
+print(a^b) #  letters in a or b but not both
+
+a = {x for x in 'abracadabra' if x not in 'abc'}
+print(a)
+
+
+# Dictionaries
+tel = {'jack': 4090, 'sape': 4139 }
+tel['guido'] = 4127
+print(tel)
+print(tel['jack'])
+del tel['sape']
+tel['irv'] = 4127
+print(tel)
+print(list(tel.keys()))
+print(sorted(tel.keys()))
+print('guido' in tel)
+print('jack' not in tel)
+
+# dict constructor builds dictionaries directly
+print(dict([('sape', 4139), ('guido', 4127), ('jack', 4098)]))
+print({x: x**2 for x in (2, 4, 6)})
+print(dict(siape=4139,gluido=4127,bjack=4098))
+
+#  Looping Technique
+knights = {'gallahad': 'the pure',  'robin': 'the brave'}
+for k,v in knights.items():
+    print(k,v)
+
+for i,v in enumerate(['tic', 'tac', 'toe']):
+    print(i,v)
+
+#  To loop over two or three functions at the same time , the entries can be paired with zip function
+questions = ['name', 'quest', 'favorite color']
+answers = ['lancelot', 'the holy grail', 'blue']
+for q,a in zip(questions,answers):
+    print('what is your {0}? It is {1}.'.format(q,a))
+
+for i in reversed(range(1,10,2)):
+    print(i)
+basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+for f in  sorted(set(basket)):
+    print(f)
+print(basket)
+
+import math
+raw_data = [56.2, float('NaN'), 51.7, 55.3, 52.5, float('NaN'), 47.8]
+filtered_data = []
+for value in raw_data:
+    if not math.isnan(value):
+        filtered_data.append(value)
+print(filtered_data)
+
