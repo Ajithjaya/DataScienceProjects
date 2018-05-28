@@ -92,3 +92,50 @@ c.setAttr(200)
 c.getAttr()
 
 #  Overriding methods
+# You can always override your parent class methods.
+class Parent:
+    def myMethod(self):
+        print("Calling Parent method")
+
+class Child(Parent):
+    def myMethod(self):
+        print('Calling child method')
+c = Child()
+c.myMethod()
+
+# Method overloading - python does not support method overloading
+def product(a, b):
+    p = a*b
+    print(p)
+def product(a, b , c):
+    p = a*b*c
+    print(p)
+
+#  product (4,5)
+product(4,5,5)
+
+def add(datatype, *args):
+    if datatype == 'int':
+        answer = 0
+    if datatype == 'str':
+        answer = ''
+    for x in args:
+        answer = answer + x
+    print(answer)
+
+add('int', 5, 6)
+add('str', 'Hi', "Geeks")
+
+# Data hiding
+
+class JustCounter:
+    __secretCount = 0
+
+    def count(self):
+        self.__secretCount += 1
+        print(self.__secretCount)
+
+counter = JustCounter()
+counter.count()
+counter.count()
+#  print(counter.__secretCount)
